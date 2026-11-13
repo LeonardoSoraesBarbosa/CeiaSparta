@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-cinzel: 'Cinzel', serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-caveat: 'Caveat', cursive;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #f7f6f2;
+    color: #1c1917;
+    overflow-x: hidden;
+  }
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-handwriting {
+  font-family: 'Caveat', cursive;
+}
+
+/* Subtle marble texture & Greek meander watermark */
+.bg-marble {
+  background-color: #f8f7f4;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(200, 16, 46, 0.03) 0%, transparent 60%),
+    radial-gradient(rgba(17, 24, 39, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px;
+}
+
+/* Greek Key / Meander geometric subtle decorative border */
+.greek-border-top {
+  border-top: 3px double #1c1917;
+}
+
+/* Realistic clean Polaroid on light background */
+.polaroid-card {
+  background: #ffffff;
+  border: 1px solid #e7e5e4;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05), 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.polaroid-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+/* Spartan Red & Gold accent utilities matching the uploaded poster */
+.text-sparta-red {
+  color: #c8102e;
+}
+
+.bg-sparta-red {
+  background-color: #c8102e;
+}

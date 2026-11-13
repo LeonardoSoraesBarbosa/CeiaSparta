@@ -1,0 +1,6 @@
+{
+  "name": "Ceia da Sparta 2026",
+  "description": "Reencontro e confraternização de ex-moradores e amigos da República Sparta. Cardápio da ceia, arquivo em vídeo, contagem regressiva e celebração do nosso legado. Au-Au-Au!",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
