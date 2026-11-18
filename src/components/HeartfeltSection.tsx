@@ -1,6 +1,6 @@
 import React from 'react';
-import { Shield } from 'lucide-react';
 import { EVENT_DETAILS } from '../data/spartaData';
+import { SpartaLogo } from './SpartaLogo';
 
 export const HeartfeltSection: React.FC = () => {
   return (
@@ -19,17 +19,17 @@ export const HeartfeltSection: React.FC = () => {
 
             <div className="text-stone-700 space-y-2.5 text-sm sm:text-base leading-relaxed text-left font-sans">
               <p>
-                A Sparta nunca foi só um endereço. É o lugar onde dividimos as maiores risadas da juventude e forjamos uma irmandade que resiste ao tempo.
+                A Sparta nunca foi só um endereço. É onde histórias, amizades e tradições atravessam gerações.
               </p>
               <p className="font-semibold text-stone-900">
-                Cada reencontro pulsa como se estivéssemos juntos ontem. Contamos com a sua presença nesse brinde.
+                No dia 5 de dezembro, a casa recebe novamente quem faz parte dessa história. Contamos com a sua presença.
               </p>
             </div>
 
             <div className="pt-3 border-t border-stone-100 flex items-center justify-between text-left">
               <div>
                 <p className="text-2xl font-bold font-handwriting text-red-700">
-                  Au-Au-Au!
+                  Aqui somos todos irmãos!
                 </p>
                 <p className="text-xs text-stone-500">
                   República Sparta
@@ -48,8 +48,8 @@ export const HeartfeltSection: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3.5">
               <div className="w-12 h-12 rounded-xl ring-1 ring-stone-300 p-1 shrink-0 bg-stone-50">
-                <div className="w-full h-full bg-white rounded-lg flex items-center justify-center border border-stone-200">
-                  <Shield className="w-6 h-6 text-red-700 fill-red-700/10" />
+                <div className="w-full h-full bg-white rounded-lg flex items-center justify-center border border-stone-200 overflow-hidden">
+                  <SpartaLogo className="w-full h-full" />
                 </div>
               </div>
               <div className="text-left">

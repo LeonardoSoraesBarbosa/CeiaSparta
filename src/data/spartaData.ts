@@ -1,4 +1,13 @@
 import { Attendee } from '../utils/rsvp';
+import spartaBrindeImage from '../assets/images/sparta_brinde_confraternizacao_1794265178467.jpg';
+import spartaChurrascoImage from '../assets/images/sparta_churrasco_antigo_1794265176605.jpg';
+import spartaInfinityImage from '../assets/images/sparta_infinity_openbar_1794270045673.jpg';
+import spartaInterrepsImage from '../assets/images/sparta_interreps_1794270031218.jpg';
+import spartaJogosImage from '../assets/images/sparta_jogos_universitarios_1794265177936.jpg';
+import spartaReuniaoImage from '../assets/images/sparta_reuniao_hierarquia_1794270058540.jpg';
+import spartaResenhaImage from '../assets/images/sparta_resenha_sala_1794265177369.jpg';
+
+export const POSTER_IMAGE_URL = `${import.meta.env.BASE_URL}assets/aistudio/IMG-20261005-WA0199_2__c5426b5a.jpg`;
 
 export interface PhotoMemory {
   id: string;
@@ -55,7 +64,7 @@ export const INITIAL_ATTENDEES: Attendee[] = [
     guestsCount: 0,
     favoriteDrinkOrFood: 'Costela de chão',
     confirmedAt: '06/11/2026',
-    customMessage: 'Au-Au-Au! Já separei a beca espartana!',
+    customMessage: 'Aqui somos todos irmãos! Já separei a beca spartana!',
   },
   {
     id: 'att-3',
@@ -151,19 +160,19 @@ export interface HierarchyTier {
 export const PHOTO_MEMORIES: PhotoMemory[] = [
   {
     id: 'photo-1',
-    title: 'Ceia Oficial & Reunião dos Espartanos',
+    title: 'Ceia Oficial & Reunião dos Spartanos',
     year: 'Save The Date 05/12',
     category: 'confraternizacao',
-    imageUrl: '/assets/aistudio/IMG-20261005-WA0199_2__c5426b5a.jpg',
-    caption: 'Arte e foto oficial de convocação da Ceia da Sparta. Beira da piscina com o manto espartano!',
+    imageUrl: POSTER_IMAGE_URL,
+    caption: 'Arte e foto oficial de convocação da Ceia da Sparta com o manto spartano!',
     photographerOrSubmittedBy: 'Comissão Ceia Sparta',
   },
   {
     id: 'photo-interreps',
     title: 'Bicampeão do Interreps (UFOP & UEMG)',
-    year: 'Orgulho Espartano',
+    year: 'Orgulho Spartano',
     category: 'jogos',
-    imageUrl: '/src/assets/images/sparta_interreps_1794270031218.jpg',
+    imageUrl: spartaInterrepsImage,
     caption: 'Comemoração histórica do bicampeonato no Interreps! Manto grená e dourado no topo do pódio.',
     photographerOrSubmittedBy: '@spartarep Arquivo Oficial',
   },
@@ -172,8 +181,8 @@ export const PHOTO_MEMORIES: PhotoMemory[] = [
     title: 'Sparta Infinity (@sparta.infinity)',
     year: 'Edição Histórica',
     category: 'confraternizacao',
-    imageUrl: '/src/assets/images/sparta_infinity_openbar_1794270045673.jpg',
-    caption: 'O maior festival universitário open bar de João Monlevade, produzido e comandado pelos espartanos.',
+    imageUrl: spartaInfinityImage,
+    caption: 'O maior festival universitário open bar de João Monlevade, produzido e comandado pelos spartanos.',
     photographerOrSubmittedBy: 'Equipe Sparta Infinity',
   },
   {
@@ -181,7 +190,7 @@ export const PHOTO_MEMORIES: PhotoMemory[] = [
     title: 'Reunião de República & Lousa da Hierarquia',
     year: 'Tradição Viva',
     category: 'sala',
-    imageUrl: '/src/assets/images/sparta_reuniao_hierarquia_1794270058540.jpg',
+    imageUrl: spartaReuniaoImage,
     caption: 'A tradicional varanda da casa em Minas: Decano, veteranos e bixos reunidos em torno do estatuto.',
     photographerOrSubmittedBy: 'Mural da República Sparta',
   },
@@ -190,7 +199,7 @@ export const PHOTO_MEMORIES: PhotoMemory[] = [
     title: 'O Clássico Churrasco de Domingo na Casa',
     year: 'Turmas 2016-2020',
     category: 'churrasco',
-    imageUrl: '/src/assets/images/sparta_churrasco_antigo_1794265176605.jpg',
+    imageUrl: spartaChurrascoImage,
     caption: 'Churrasqueira de tijolinho a todo vapor, cerveja gelada na mão e histórias que nunca envelhecem.',
     photographerOrSubmittedBy: 'Careca (Morador 2015)',
   },
@@ -199,16 +208,16 @@ export const PHOTO_MEMORIES: PhotoMemory[] = [
     title: 'Resenha na Sala & Roda de Viola',
     year: 'Novembro 2018',
     category: 'sala',
-    imageUrl: '/src/assets/images/sparta_resenha_sala_1794265177369.jpg',
+    imageUrl: spartaResenhaImage,
     caption: 'Aquela resenha pós-aula no sofá surrado, flâmulas na parede e risadas até 4 da manhã.',
     photographerOrSubmittedBy: 'Leo (Morador 2017)',
   },
   {
     id: 'photo-4',
-    title: 'Torcida Espartana nos Jogos Universitários',
+    title: 'Torcida Spartana nos Jogos Universitários',
     year: 'Edição Histórica',
     category: 'jogos',
-    imageUrl: '/src/assets/images/sparta_jogos_universitarios_1794265177936.jpg',
+    imageUrl: spartaJogosImage,
     caption: 'Arquibancada grená e amarela em peso! A bateria não parava e a garganta ficava rouca.',
     photographerOrSubmittedBy: 'Biro (Morador 2016)',
   },
@@ -217,8 +226,8 @@ export const PHOTO_MEMORIES: PhotoMemory[] = [
     title: 'O Brinde das Velhas Guardas',
     year: 'Ceia Passada',
     category: 'confraternizacao',
-    imageUrl: '/src/assets/images/sparta_brinde_confraternizacao_1794265178467.jpg',
-    caption: 'Mesão de madeira, luzes quentes e o brinde solene: "Au-Au-Au!"',
+    imageUrl: spartaBrindeImage,
+    caption: 'Mesão de madeira, luzes quentes e o brinde solene: "Aqui somos todos irmãos!"',
     photographerOrSubmittedBy: 'Comissão 2024',
   },
 ];
@@ -449,9 +458,9 @@ export const VIDEO_MEMORIES: VideoMemory[] = [
     year: '2023',
     duration: '03:42',
     category: 'Aftermovie',
-    thumbnail: '/src/assets/images/sparta_brinde_confraternizacao_1794265178467.jpg',
+    thumbnail: spartaBrindeImage,
     description: 'Os melhores momentos do reencontro que parou a cidade. Abraços, churrasco de primeira e reencontro de 4 gerações.',
-    chantLyrics: 'É a Sparta! Au-Au-Au! Tradição que ninguém cala!',
+    chantLyrics: 'É a Sparta! Aqui somos todos irmãos! Tradição que ninguém cala!',
   },
   {
     id: 'vid-2',
@@ -459,8 +468,8 @@ export const VIDEO_MEMORIES: VideoMemory[] = [
     year: '2019',
     duration: '01:15',
     category: 'Grito de Guerra',
-    thumbnail: '/src/assets/images/sparta_jogos_universitarios_1794265177936.jpg',
-    description: 'Mais de 50 espartanos cantando a plenos pulmões. Arrepia só de ouvir!',
+    thumbnail: spartaJogosImage,
+    description: 'Mais de 50 spartanos cantando a plenos pulmões. Arrepia só de ouvir!',
     chantLyrics: 'Uh! Ha! Uh! Ha! Aqui é Sparta, meu irmão! Ninguém segura o nosso pelotão!',
   },
   {
@@ -469,7 +478,7 @@ export const VIDEO_MEMORIES: VideoMemory[] = [
     year: '2014-2024',
     duration: '05:10',
     category: 'Documentário',
-    thumbnail: '/src/assets/images/sparta_churrasco_antigo_1794265176605.jpg',
+    thumbnail: spartaChurrascoImage,
     description: 'Depoimentos dos fundadores aos bichos de hoje. Como a Sparta moldou a vida de dezenas de amigos.',
     chantLyrics: 'Nossa história continua viva ontem, hoje e para sempre!',
   },
@@ -479,7 +488,7 @@ export const VIDEO_MEMORIES: VideoMemory[] = [
     year: '2021',
     duration: '02:30',
     category: 'Acústico & Resenha',
-    thumbnail: '/src/assets/images/sparta_resenha_sala_1794265177369.jpg',
+    thumbnail: spartaResenhaImage,
     description: 'As modas de viola e os causos mais engraçados contados pelos veteranos que ninguém esquece.',
     chantLyrics: 'Vale a pena lembrar cada segundo dessa vivência.',
   },
@@ -490,7 +499,7 @@ export const GUESTBOOK_MESSAGES: GuestbookMessage[] = [
     id: 'msg-1',
     author: 'Renato "Perninha"',
     generation: 'Morador 2013-2016',
-    message: 'Irmãos, 8 anos de formado e a saudade dessa casa nunca diminui. Passar por aquele portão dia 05/12 vai ser emocionante. Contem com a minha presença e com meu abraço em cada um de vocês! Au-Au-Au!',
+    message: 'Irmãos, 8 anos de formado e a saudade dessa casa nunca diminui. Passar por aquele portão dia 05/12 vai ser emocionante. Contem com a minha presença e com meu abraço em cada um de vocês! Aqui somos todos irmãos!',
     date: 'Ontem às 21:15',
     likes: 19,
   },
@@ -524,17 +533,11 @@ export interface CeiaMenuItem {
   id: string;
   name: string;
   category: 'principal' | 'acompanhamento' | 'sobremesa' | 'petisco-economico' | 'petisco-beliscar';
-  description: string;
-  badge?: string;
-  highlight?: boolean;
 }
 
 export interface CeiaCategory {
   id: string;
   title: string;
-  subtitle: string;
-  icon: string;
-  badge: string;
   items: CeiaMenuItem[];
 }
 
@@ -542,130 +545,48 @@ export const CEIA_CARDAPIO: CeiaCategory[] = [
   {
     id: 'principais',
     title: 'Pratos Principais',
-    subtitle: 'Cortes nobres e preparo artesanal para a noite',
-    icon: '',
-    badge: 'Prato Principal',
     items: [
       {
         id: 'pernil',
-        name: 'Pernil suíno assado',
+        name: 'Pernil',
         category: 'principal',
-        description: 'Assado lentamente no forno em baixa temperatura até a pururuca dourar, marinado em ervas frescas, vinho branco e alho confitado.',
-        badge: 'Assado Especial',
-        highlight: true,
       },
       {
         id: 'lasanha',
-        name: 'Lasanha de queijo e molho branco',
+        name: 'Lasanha',
         category: 'principal',
-        description: 'Massa fresca artesanal gratinada com queijo da Canastra selecionado e bechamel cremoso aromatizado com noz-moscada.',
-        badge: 'Receita da Casa',
-        highlight: true,
       },
     ],
   },
   {
     id: 'acompanhamentos',
     title: 'Acompanhamentos Tradicionais',
-    subtitle: 'Guarnições clássicas da ceia de fim de ano',
-    icon: '',
-    badge: 'Acompanhamentos',
     items: [
       {
-        id: 'arroz',
-        name: 'Arroz branco',
+        id: 'salpicao',
+        name: 'Salpicão',
         category: 'acompanhamento',
-        description: 'Arroz soltinho preparado com azeite extravirgem e alho tostado na hora.',
       },
       {
         id: 'farofa',
-        name: 'Farofa crocante',
+        name: 'Farofa',
         category: 'acompanhamento',
-        description: 'Farinha de mandioca artesanal tostada na manteiga de garrafa com cubos de bacon defumado e ervas.',
-        badge: 'Crocante',
       },
       {
-        id: 'salpicao',
-        name: 'Salpicão de frango',
+        id: 'arroz',
+        name: 'Arroz',
         category: 'acompanhamento',
-        description: 'Frango defumado desfiado, maçã verde, cenoura em lâminas finas, creme leve da casa e batata palha artesanal.',
-        badge: 'Clássico',
-        highlight: true,
-      },
-      {
-        id: 'salada',
-        name: 'Salada verde sazonal',
-        category: 'acompanhamento',
-        description: 'Folhas nobres frescas, tomates cereja doces, lâminas de palmito e vinagrete suave de mostarda e mel.',
       },
     ],
   },
   {
     id: 'sobremesas',
     title: 'Sobremesa',
-    subtitle: 'Encerramento especial do banquete',
-    icon: '',
-    badge: 'Sobremesa',
     items: [
       {
-        id: 'pave',
-        name: 'Pavê de chocolate',
+        id: 'bombom-aberto',
+        name: 'Bombom aberto',
         category: 'sobremesa',
-        description: 'Receita consagrada da casa: camadas intercaladas de creme diplomata de baunilha, biscoito champagne umedecido e ganache de chocolate meio amargo com raspas.',
-        badge: 'Especial da Noite',
-        highlight: true,
-      },
-    ],
-  },
-  {
-    id: 'petiscos-economicos',
-    title: 'Petiscos',
-    subtitle: 'Porções fritas na hora para acompanhar o chopp na varanda',
-    icon: '',
-    badge: 'Petiscos',
-    items: [
-      {
-        id: 'banana-frita',
-        name: 'Banana da terra frita',
-        category: 'petisco-economico',
-        description: 'Dourada na chapa e finalizada crocante por fora e macia por dentro.',
-        badge: 'Tradicional',
-      },
-      {
-        id: 'mandioca-frita',
-        name: 'Mandioca frita na manteiga',
-        category: 'petisco-economico',
-        description: 'Cozida previamente e frita até atingir crocância perfeita, cremosa por dentro.',
-      },
-      {
-        id: 'pastel',
-        name: 'Pastel artesanal frito na hora',
-        category: 'petisco-economico',
-        description: 'Massa fina, sequinha e crocante, servida quentinha durante toda a resenha.',
-        badge: 'Frito na Hora',
-      },
-      {
-        id: 'calabresa',
-        name: 'Calabresa acebolada na chapa',
-        category: 'petisco-economico',
-        description: 'Fatias de calabresa defumada douradas com cebolas caramelizadas e cheiro-verde.',
-      },
-    ],
-  },
-  {
-    id: 'petiscos-beliscar',
-    title: 'Para Beliscar',
-    subtitle: 'Mesa de frios e tira-gosto durante a recepção',
-    icon: '',
-    badge: 'Tira-Gosto',
-    items: [
-      {
-        id: 'ovos-codorna',
-        name: 'Ovos de codorna temperados',
-        category: 'petisco-beliscar',
-        description: 'Clássico tira-gosto de confraternização universitária, marinados em azeite extravirgem, orégano chileno e flor de sal.',
-        badge: 'Clássico',
-        highlight: true,
       },
     ],
   },
@@ -674,74 +595,68 @@ export const CEIA_CARDAPIO: CeiaCategory[] = [
 export const PRICING_TIERS = [
   {
     id: 'tier-ex-morador',
-    name: 'Ex-Morador Espartano',
+    name: 'Ex-Moradores',
     badge: 'Veteranos',
-    price: 150,
-    installments: 'ou 2x de R$ 80',
+    price: 160,
+    installments: 'Pagamento à vista',
     description: 'Contribuição para ex-moradores da república. Acesso integral a todas as dependências e open bar completo.',
     popular: true,
     features: [
-      'Ceia Completa: Pernil suíno assado e Lasanha de queijo com bechamel',
-      'Acompanhamentos: Salpicão de frango, Farofa crocante, Arroz branco e Salada verde',
-      'Sobremesa: Pavê artesanal de chocolate da casa',
-      'Mesa de Petiscos: Mandioca, Banana frita, Pastel, Calabresa e Ovos de codorna',
-      'Open Bar Premium: Chopp artesanal, cervejas selecionadas e caipirinhas',
-      'Caneca e tirante comemorativo oficial Ceia 2026',
-      'Livre acesso à piscina e dependências da sede',
+      'Ceia: Pernil, Lasanha, Salpicão, Farofa e Arroz',
+      'Sobremesa: Bombom aberto',
+      'Open bar com chopp gelado',
     ],
   },
   {
     id: 'tier-acompanhante',
-    name: 'Acompanhante',
-    badge: 'Convidado Especial',
-    price: 120,
-    installments: 'ou 2x de R$ 65',
-    description: 'Para companheiras, companheiros e familiares que vêm celebrar esta história com a república.',
+    name: 'Acompanhantes',
+    badge: 'Acompanhantes',
+    price: 80,
+    installments: 'Pagamento à vista',
+    description: 'Valor para acompanhantes que vêm celebrar esta história com a República Sparta.',
     popular: false,
     features: [
-      'Ceia natalina completa com pratos principais e guarnições',
-      'Todos os acompanhamentos e sobremesa de chocolate artesanal',
-      'Mesa livre de petiscos durante a tarde e a noite',
-      'Open Bar ilimitado durante todo o evento',
-      'Copo colecionável da edição 2026',
-      'Infraestrutura completa com segurança e recreação',
-    ],
-  },
-  {
-    id: 'tier-amigo',
-    name: 'Amigo da República',
-    badge: 'Convidado de Honra',
-    price: 140,
-    installments: 'ou 2x de R$ 75',
-    description: 'Para os amigos fiéis e repúblicas parceiras que dividiram grandes momentos conosco.',
-    popular: false,
-    features: [
-      'Banquete completo da Ceia de Natal e sobremesa',
-      'Acesso integral à mesa de petiscos',
-      'Open Bar completo com Chopp artesanal e drinks',
-      'Caneca oficial de confraternização 2026',
-      'Reencontro com as turmas e atrações ao vivo',
+      'Ceia: Pernil, Lasanha, Salpicão, Farofa e Arroz',
+      'Sobremesa: Bombom aberto',
+      'Open bar com chopp gelado',
     ],
   },
 ];
 
+export const SINGLE_PRICE_TIER = {
+  id: 'tier-valor-unico',
+  name: 'Convidado',
+  badge: 'Valor único',
+  price: 80,
+  installments: 'Pagamento à vista',
+  description: 'Valor único por pessoa para participar da Ceia da Sparta.',
+  popular: true,
+  features: [
+    'Ceia: Pernil, Lasanha, Salpicão, Farofa e Arroz',
+    'Sobremesa: Bombom aberto',
+    'Open bar com chopp gelado',
+  ],
+};
+
 export const EVENT_DETAILS = {
   name: 'Ceia da Sparta 2026',
-  edition: 'Encontro Anual de Ex-Moradores e Amigos',
+  edition: 'Ceia de Ex-Moradores e Amigos',
   dateFormatted: '05 de Dezembro de 2026',
   dayOfWeek: 'Sábado',
   time: 'A partir das 18:00',
-  location: 'Sede da República Sparta',
+  location: 'República Sparta',
+  address: 'R. Poços de Caldas, 342 - Alvorada, João Monlevade - MG, 35930-048',
+  mapsUrl: 'https://share.google/sZDMkAae7h7h4AOSf',
   city: 'João Monlevade - MG',
   instagram: '@spartarep',
   instagramUrl: 'https://www.instagram.com/spartarep/',
   motto: 'Aqui somos todos irmãos',
   foundedDate: 'Fundada em 02/05/2010',
   infinityEvent: '@sparta.infinity',
-  whatsappNumber: '5511999998888',
-  pixKey: 'ceia.sparta@gmail.com',
-  pixHolder: 'Comissão de Formados & Moradores Sparta',
-  pixBank: 'Banco Inter / NuBank',
+  whatsappNumber: '5538999912228',
+  pixKey: '10665086660',
+  pixHolder: 'Guilherme Ferreira dos Reis',
+  pixBank: 'Banco Inter',
   instagramStats: {
     handle: '@spartarep',
     followers: '2.903',
@@ -753,6 +668,6 @@ export const EVENT_DETAILS = {
     bioLineUnis: 'UFOP e UEMG · João Monlevade - MG',
     bioLineTitles: 'Bicampeão do Interreps Universitário',
     city: 'João Monlevade - MG',
-    avatarUrl: '/assets/sparta_avatar.jpg',
+    avatarUrl: `${import.meta.env.BASE_URL}assets/sparta_avatar.jpg`,
   },
 };

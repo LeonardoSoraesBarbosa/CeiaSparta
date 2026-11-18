@@ -1,11 +1,12 @@
 import React from 'react';
-import { Shield, MessageCircle, Instagram } from 'lucide-react';
+import { MessageCircle, Instagram } from 'lucide-react';
 import { EVENT_DETAILS } from '../data/spartaData';
 import { generateWhatsAppLink } from '../utils/rsvp';
+import { SpartaLogo } from './SpartaLogo';
 
 export const Footer: React.FC = () => {
   const directWhatsAppUrl = generateWhatsAppLink({
-    customMessage: 'Fala rapaziada da Sparta! Quero tirar uma dúvida sobre a Ceia! Au-Au-Au!',
+    customMessage: 'Queria tirar uma dúvida sobre a Ceia.',
   }, EVENT_DETAILS.whatsappNumber);
 
   return (
@@ -14,7 +15,7 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand & Motto */}
           <div className="flex items-center gap-3 text-center md:text-left">
-            <Shield className="w-7 h-7 text-red-700 fill-red-700/10" />
+            <SpartaLogo className="w-12 h-12" />
             <div>
               <span className="text-lg font-bold font-cinzel text-stone-900 block">
                 REPÚBLICA SPARTA
@@ -39,9 +40,6 @@ export const Footer: React.FC = () => {
             <a href="#valores" className="hover:text-red-700 transition-colors">
               Valores
             </a>
-            <a href="#videos" className="hover:text-red-700 transition-colors">
-              Vídeos
-            </a>
             <a
               href={EVENT_DETAILS.instagramUrl}
               target="_blank"
@@ -58,7 +56,7 @@ export const Footer: React.FC = () => {
               className="inline-flex items-center gap-1.5 text-emerald-600 hover:text-emerald-700 font-bold"
             >
               <MessageCircle className="w-4 h-4 fill-emerald-600" />
-              <span>WhatsApp da Comissão</span>
+              <span>Confirmar no WhatsApp</span>
             </a>
           </div>
         </div>
@@ -68,7 +66,7 @@ export const Footer: React.FC = () => {
             © 2026 República Sparta · João Monlevade - MG
           </p>
           <p className="font-handwriting text-base text-stone-700 font-bold">
-            Au-Au-Au!
+            Aqui somos todos irmãos!
           </p>
         </div>
       </div>

@@ -97,7 +97,7 @@ test('calculateTotalAttendees aggregates ex-moradores and guests correctly', () 
   assert.equal(stats.totalConfirmed, 6); // 3 attendees + 3 guests
 });
 
-test('generateWhatsAppLink includes key phrases Au-Au-Au and Nossa história continua viva', () => {
+test('generateWhatsAppLink creates a natural confirmation message', () => {
   const url = generateWhatsAppLink({
     name: 'Thiago Martins',
     nickname: 'Biro',
@@ -107,8 +107,12 @@ test('generateWhatsAppLink includes key phrases Au-Au-Au and Nossa história con
   });
 
   const decoded = decodeURIComponent(url);
-  assert.ok(decoded.includes('Thiago Martins'));
-  assert.ok(decoded.includes('Biro'));
-  assert.ok(decoded.includes('Nossa história continua viva'));
-  assert.ok(decoded.includes('Au-Au-Au!'));
+  assert.ok(decoded.includes('Oi, pessoal da Sparta! Tudo bem?'));
+  assert.ok(decoded.includes('Aqui é Thiago Martins (Biro).'));
+  assert.ok(decoded.includes('Sou ex-morador — Bicho 2016.'));
+  assert.ok(decoded.includes('Bora quebrar tudo!'));
+  assert.ok(decoded.includes('Aqui somos todos irmãos!'));
+  assert.ok(!decoded.includes('Status:'));
+  assert.ok(!decoded.includes('Vim pela landing page'));
+  assert.ok(!decoded.includes('Vou sozinho'));
 });

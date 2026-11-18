@@ -1,14 +1,25 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
-import path from 'path';
+import {resolve} from 'node:path';
 import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    // Relative asset URLs work both at a custom domain and under
+    // https://<user>.github.io/<repository>/.
+    base: './',
     plugins: [react(), tailwindcss()],
+    build: {
+      rollupOptions: {
+        input: {
+          main: resolve(import.meta.dirname, 'index.html'),
+          valorUnico: resolve(import.meta.dirname, 'valor-unico.html'),
+        },
+      },
+    },
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': import.meta.dirname,
       },
     },
     server: {

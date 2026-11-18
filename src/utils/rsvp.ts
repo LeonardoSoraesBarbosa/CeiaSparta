@@ -88,23 +88,43 @@ export function calculateTotalAttendees(attendees: Attendee[]): {
 
 export function generateWhatsAppLink(
   data: Partial<RSVPFormData>,
-  targetPhone: string = '5511999998888'
+  targetPhone: string = '5538999912228'
 ): string {
   const cleanPhone = targetPhone.replace(/\D/g, '');
-  const greeting = 'Fala rapaziada da Sparta!';
-  const nameLine = data.name ? `Meu nome é *${data.name.trim()}*${data.nickname ? ` (vulgo *${data.nickname.trim()}*)` : ''}` : 'Vim pela landing page da Ceia!';
-  const roleLine = data.role ? `Status: ${data.role === 'ex-morador' ? 'Ex-Morador' : data.role === 'morador-atual' ? 'Morador Atual' : 'Amigo da Sparta'}${data.generationOrYear ? ` (${data.generationOrYear})` : ''}` : '';
-  const guestLine = data.bringingGuest ? `Vou levar acompanhante: ${data.guestNames || '1 pessoa'}` : 'Vou sozinho(a) pronto pro combate!';
-  const messageLine = data.customMessage ? `Recado: "${data.customMessage.trim()}"` : '';
-  const shout = 'Nossa história continua viva! Au-Au-Au!';
+  const greeting = 'Oi, pessoal da Sparta! Tudo bem?';
+  const nameLine = data.name
+    ? `Aqui é ${data.name.trim()}${data.nickname?.trim() ? ` (${data.nickname.trim()})` : ''}.`
+    : '';
+  const roleLabel = data.role
+    ? {
+        'ex-morador': 'ex-morador',
+        'morador-atual': 'morador atual',
+        'amigo-sparta': 'amigo da Sparta',
+        agregado: 'agregado da Sparta',
+      }[data.role]
+    : '';
+  const roleLine = roleLabel
+    ? `Sou ${roleLabel}${data.generationOrYear?.trim() ? ` — ${data.generationOrYear.trim()}` : ''}.`
+    : '';
+  const messageLine = data.customMessage?.trim() || '';
+  const guestLine = data.bringingGuest === true
+    ? data.guestNames?.trim()
+      ? `Vou com ${data.guestNames.trim()}.`
+      : data.guestsCount && data.guestsCount > 1
+        ? `Vou levar ${data.guestsCount} pessoas comigo.`
+        : 'Vou levar uma pessoa comigo.'
+    : data.bringingGuest === false
+      ? 'Vou sozinho.'
+      : '';
+  const motto = 'Aqui somos todos irmãos!';
 
   const fullText = [
     greeting,
     nameLine,
     roleLine,
-    guestLine,
     messageLine,
-    shout,
+    guestLine,
+    motto,
   ]
     .filter(Boolean)
     .join('\n\n');

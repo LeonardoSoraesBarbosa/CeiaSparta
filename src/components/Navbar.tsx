@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { MessageCircle, Menu, X, Shield, Calendar, Film, DollarSign, Utensils } from 'lucide-react';
+import { MessageCircle, Menu, X, Calendar, DollarSign, Utensils } from 'lucide-react';
 import { EVENT_DETAILS } from '../data/spartaData';
 import { generateWhatsAppLink } from '../utils/rsvp';
+import { SpartaLogo } from './SpartaLogo';
 
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -15,7 +16,7 @@ export const Navbar: React.FC = () => {
   };
 
   const directWhatsAppUrl = generateWhatsAppLink({
-    customMessage: 'Fala rapaziada da Sparta! Quero confirmar minha vaga na Ceia! Au-Au-Au!',
+    customMessage: 'Quero confirmar minha presença na Ceia deste ano.',
   }, EVENT_DETAILS.whatsappNumber);
 
   return (
@@ -28,7 +29,7 @@ export const Navbar: React.FC = () => {
           onClick={(e) => { e.preventDefault(); scrollTo('save-the-date'); }}
           className="flex items-center gap-2.5 text-xl font-bold tracking-wider font-cinzel text-stone-900 hover:text-red-700 transition-colors whitespace-nowrap shrink-0"
         >
-          <Shield className="w-6 h-6 text-red-700 fill-red-700/15" />
+          <SpartaLogo className="w-12 h-12" />
           <span>REPÚBLICA SPARTA</span>
         </a>
 
@@ -58,12 +59,6 @@ export const Navbar: React.FC = () => {
           >
             Valores
           </button>
-          <button 
-            onClick={() => scrollTo('videos')} 
-            className="hover:text-red-700 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
-          >
-            Vídeos
-          </button>
         </nav>
 
         {/* Primary Action */}
@@ -72,7 +67,7 @@ export const Navbar: React.FC = () => {
             href={directWhatsAppUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-500 rounded-lg shadow-sm transition-all hover:scale-102 whitespace-nowrap shrink-0"
+            className="inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm font-bold text-white bg-emerald-700 hover:bg-emerald-600 rounded-lg transition-colors whitespace-nowrap shrink-0"
           >
             <MessageCircle className="w-4 h-4 fill-white shrink-0" />
             <span>Confirmar no WhatsApp</span>
@@ -119,13 +114,6 @@ export const Navbar: React.FC = () => {
           >
             <DollarSign className="w-4 h-4 text-red-700" />
             <span>Valores da Confraternização</span>
-          </button>
-          <button
-            onClick={() => scrollTo('videos')}
-            className="flex items-center gap-3 w-full px-3 py-2 text-left text-sm text-stone-800 hover:bg-stone-100 rounded-md"
-          >
-            <Film className="w-4 h-4 text-red-700" />
-            <span>Galeria de Vídeos</span>
           </button>
           <div className="pt-2">
             <a

@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
-import { Check, Copy, CheckCheck, MessageCircle, QrCode, Info, ShieldCheck } from 'lucide-react';
-import { PRICING_TIERS, EVENT_DETAILS } from '../data/spartaData';
+import { Check, Copy, CheckCheck, CreditCard, MessageCircle, Info } from 'lucide-react';
+import { PRICING_TIERS, SINGLE_PRICE_TIER, EVENT_DETAILS } from '../data/spartaData';
 import { generateWhatsAppLink } from '../utils/rsvp';
+import { SpartaLogo } from './SpartaLogo';
+import pixQrCode from '../assets/images/pix_qrcode.jpeg';
 
-export const PricingSection: React.FC = () => {
+interface PricingSectionProps {
+  variant?: 'standard' | 'single';
+}
+
+export const PricingSection: React.FC<PricingSectionProps> = ({ variant = 'standard' }) => {
   const [copiedPix, setCopiedPix] = useState(false);
+  const isSinglePrice = variant === 'single';
+  const pricingTiers = isSinglePrice ? [SINGLE_PRICE_TIER] : PRICING_TIERS;
 
   const handleCopyPix = () => {
     navigator.clipboard.writeText(EVENT_DETAILS.pixKey);
@@ -14,18 +22,23 @@ export const PricingSection: React.FC = () => {
 
   const getTierWhatsAppUrl = (tierName: string) => {
     return generateWhatsAppLink({
-      customMessage: `Fala rapaziada! Quero garantir minha vaga na Ceia no lote *${tierName}*! Au-Au-Au!`,
+      customMessage: isSinglePrice
+        ? 'Quero confirmar minha presença na Ceia deste ano.'
+        : `Quero confirmar minha presença na Ceia na categoria de ${tierName.toLowerCase()}.`,
     }, EVENT_DETAILS.whatsappNumber);
   };
 
+  const creditWhatsAppUrl = generateWhatsAppLink({
+    customMessage: 'Oi, Voldemort! Quero pagar minha participação na Ceia da Sparta no cartão de crédito. Pode me passar as opções?',
+  }, EVENT_DETAILS.whatsappNumber);
+
   const INCLUDED_FOR_ALL = [
-    'Ceia completa: Pernil suíno assado e Lasanha de queijo artesanal',
-    'Acompanhamentos: Arroz branco, Farofa crocante, Salpicão de frango e Salada',
-    'Sobremesa: Pavê de chocolate da casa',
-    'Petiscos: Banana da terra, Mandioca frita, Pastel, Calabresa e Ovos de codorna',
+    'Pratos principais: Pernil e Lasanha',
+    'Acompanhamentos: Salpicão, Farofa e Arroz',
+    'Sobremesa: Bombom aberto',
     'Open Bar: Chopp gelado durante todo o evento',
     'Lembrança oficial da República Sparta',
-    'Livre acesso à sede e piscina',
+    'Livre acesso à República',
   ];
 
   return (
@@ -38,15 +51,12 @@ export const PricingSection: React.FC = () => {
             VALORES DA CONFRATERNIZAÇÃO
           </h2>
           <div className="w-16 h-1 bg-[#C8102E] mx-auto rounded-full" />
-          <p className="text-stone-600 text-sm sm:text-base">
-            Rateio de custos sem fins lucrativos. O valor arrecadado é 100% revertido na ceia, chopp e infraestrutura.
-          </p>
         </div>
 
         {/* O que está incluso para todos - Bullet Points Claros */}
-        <div className="max-w-4xl mx-auto bg-white rounded-2xl border border-stone-200 p-6 sm:p-8 shadow-xs text-left space-y-4">
+        <div className="max-w-4xl mx-auto bg-white rounded-xl border border-stone-200 p-6 sm:p-8 text-left space-y-4">
           <div className="flex items-center gap-2 border-b border-stone-100 pb-3">
-            <ShieldCheck className="w-5 h-5 text-red-700" />
+            <SpartaLogo className="w-6 h-6" />
             <h3 className="text-lg sm:text-xl font-bold font-cinzel text-stone-900">
               Incluso para Todos os Participantes
             </h3>
@@ -63,14 +73,16 @@ export const PricingSection: React.FC = () => {
         </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch max-w-6xl mx-auto">
-          {PRICING_TIERS.map((tier) => (
+        <div className={`grid grid-cols-1 gap-6 items-stretch mx-auto ${
+          isSinglePrice ? 'max-w-md' : 'md:grid-cols-2 max-w-4xl'
+        }`}>
+          {pricingTiers.map((tier) => (
             <div
               key={tier.id}
-              className={`rounded-2xl p-6 flex flex-col justify-between transition-all bg-white text-left ${
+              className={`rounded-xl p-6 flex flex-col justify-between bg-white text-left ${
                 tier.popular
-                  ? 'border-2 border-[#C8102E] shadow-md ring-1 ring-red-100'
-                  : 'border border-stone-200 hover:border-stone-300 shadow-xs'
+                  ? 'border border-[#C8102E] shadow-sm'
+                  : 'border border-stone-300'
               }`}
             >
               <div className="space-y-4">
@@ -115,7 +127,7 @@ export const PricingSection: React.FC = () => {
                   }`}
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>Garantir Vaga no WhatsApp</span>
+                  <span>Confirmar no WhatsApp</span>
                 </a>
               </div>
             </div>
@@ -123,27 +135,34 @@ export const PricingSection: React.FC = () => {
         </div>
 
         {/* PIX Payment Box */}
-        <div className="max-w-3xl mx-auto rounded-2xl bg-white border border-stone-200 p-6 sm:p-8 shadow-sm">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-            
-            <div className="md:col-span-4 flex flex-col items-center justify-center p-4 bg-stone-50 rounded-xl border border-stone-200">
-              <QrCode className="w-28 h-28 text-stone-800" />
-              <span className="text-[11px] font-mono text-stone-500 mt-2 font-bold">
-                CHAVE PIX
-              </span>
+        <div className="max-w-4xl mx-auto rounded-xl bg-white border border-stone-300 p-6 sm:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center">
+            <div className="md:col-span-5 flex flex-col items-center">
+              <div className="relative w-full max-w-[240px] aspect-square overflow-hidden bg-white">
+                <img
+                  src={pixQrCode}
+                  alt={`QR Code do PIX da Ceia Sparta — chave ${EVENT_DETAILS.pixKey}`}
+                  className="absolute w-[168%] max-w-none h-auto left-[-34%] top-[-75%]"
+                />
+              </div>
+              <p className="mt-3 text-xs text-stone-500 text-center">
+                Escaneie o QR Code pelo aplicativo do seu banco.
+              </p>
             </div>
 
-            <div className="md:col-span-8 space-y-3 text-left">
+            <div className="md:col-span-7 space-y-4 text-left">
               <div>
-                <h4 className="text-lg font-bold font-cinzel text-stone-900">
-                  Chave PIX da Comissão
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-red-700 mb-2">
+                  Pagamento
+                </p>
+                <h4 className="text-xl font-bold font-cinzel text-stone-900">
+                  PIX da Ceia
                 </h4>
-                <p className="text-xs text-stone-500 mt-0.5">
+                <p className="text-sm text-stone-600 mt-2 leading-relaxed">
                   Favorecido: {EVENT_DETAILS.pixHolder} ({EVENT_DETAILS.pixBank})
                 </p>
               </div>
 
-              {/* Copy Key */}
               <div className="flex items-center gap-2 p-2 rounded-lg bg-stone-50 border border-stone-300">
                 <input
                   type="text"
@@ -177,8 +196,31 @@ export const PricingSection: React.FC = () => {
                 <Info className="w-4 h-4 text-stone-500 shrink-0" />
                 <span>Após fazer o PIX, envie o comprovante no WhatsApp com seu nome e apelido.</span>
               </p>
-            </div>
 
+              <div className="pt-4 border-t border-stone-200 space-y-3">
+                <div className="flex items-start gap-3">
+                  <CreditCard className="w-5 h-5 text-red-700 shrink-0 mt-0.5" />
+                  <div>
+                    <h5 className="text-sm font-bold text-stone-900">
+                      Pagamento no cartão de crédito
+                    </h5>
+                    <p className="text-xs text-stone-600 mt-1 leading-relaxed">
+                      Para pagar no crédito, entre em contato com o Voldemort pelo WhatsApp.
+                    </p>
+                  </div>
+                </div>
+
+                <a
+                  href={creditWhatsAppUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Falar no WhatsApp</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 

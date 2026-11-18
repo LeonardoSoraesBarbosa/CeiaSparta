@@ -17,8 +17,8 @@ export const CountdownSection: React.FC = () => {
   const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
     'Ceia da Sparta 2026'
   )}&dates=20261205T210000Z/20261206T090000Z&details=${encodeURIComponent(
-    'Ceia da Sparta 2026! Confraternização, open bar e irmãos reunidos. Au-Au-Au!'
-  )}&location=${encodeURIComponent(EVENT_DETAILS.location)}`;
+    'Ceia da Sparta 2026! Confraternização, open bar e irmãos reunidos. Aqui somos todos irmãos!'
+  )}&location=${encodeURIComponent(`${EVENT_DETAILS.location} - ${EVENT_DETAILS.address}`)}`;
 
   const downloadIcsFile = () => {
     const icsContent = [
@@ -27,8 +27,8 @@ export const CountdownSection: React.FC = () => {
       'PRODID:-//Sparta//Ceia Sparta 2026//PT',
       'BEGIN:VEVENT',
       'SUMMARY:Ceia da Sparta 2026',
-      'DESCRIPTION:Confraternização oficial da República Sparta. Au-Au-Au!',
-      'LOCATION:Sede da República Sparta',
+      'DESCRIPTION:Confraternização oficial da República Sparta. Aqui somos todos irmãos!',
+      `LOCATION:${EVENT_DETAILS.location} - ${EVENT_DETAILS.address.replace(/,/g, '\\,')}`,
       'DTSTART:20261205T210000Z',
       'DTEND:20261206T090000Z',
       'STATUS:CONFIRMED',
@@ -46,7 +46,7 @@ export const CountdownSection: React.FC = () => {
   };
 
   const directWhatsAppUrl = generateWhatsAppLink({
-    customMessage: 'Fala rapaziada! Tô acompanhando a contagem regressiva da Ceia! Au-Au-Au!',
+    customMessage: 'Vi a contagem regressiva e quero confirmar minha presença na Ceia.',
   }, EVENT_DETAILS.whatsappNumber);
 
   return (
@@ -63,7 +63,7 @@ export const CountdownSection: React.FC = () => {
             CONTAGEM REGRESSIVA
           </h2>
           <p className="text-stone-600 max-w-xl mx-auto text-sm sm:text-base">
-            Cada segundo conta para o reencontro na sede.
+            Cada segundo conta para o reencontro na República.
           </p>
         </div>
 
@@ -112,11 +112,6 @@ export const CountdownSection: React.FC = () => {
               Segundos
             </div>
           </div>
-        </div>
-
-        {/* Anthem Quote */}
-        <div className="text-stone-700 text-sm italic font-handwriting text-lg sm:text-xl">
-          &ldquo;O reencontro sagrado dos espartanos. Au-Au-Au!&rdquo;
         </div>
 
         {/* Engagement Actions */}
